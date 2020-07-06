@@ -1,17 +1,10 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
-// import imgHomeMobile from '../../public/img/mobileImg/homeMobile.webp'
 
 export default function Home({ scroll, showLogInModal, showSingUpModal }) {
   const [ taglineClass, setTaglineClass ] = useState('hidden')
-
-  useEffect(() => {
-    setTimeout(() => {
-      setTaglineClass('animated bounceInLeft')
-    }, 1200)
-  }, [])
 
   return (
     <DivHome>
@@ -29,10 +22,10 @@ export default function Home({ scroll, showLogInModal, showSingUpModal }) {
         </div>
       </div>
       <div>
-        <div className="animated zoomInDown">
+        <div>
           Go fight for your team!
         </div>
-        <div className={taglineClass}>
+        <div>
           Have an amazing basketball tournament!
         </div>
       </div>

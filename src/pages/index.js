@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import styled, { createGlobalStyle } from 'styled-components'
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
+import { data } from '../data'
 
 import Home from '../components/Home'
 import Authentication from '../components/Authentication'
@@ -11,9 +12,20 @@ import Contacts from '../components/Contacts'
 import Faq from '../components/Faq'
 import AboutUs from '../components/AboutUs'
 
-export default function Index() {
+export async function getStaticProps() {
+  return { props: { data } }
+}
+
+export default function Index({ data }) {
   const [ authClass, setAuthClass ] = useState('invisible')
   const [ isLogInTabVisible, setIsLogInTabVisible ] = useState(null)
+
+  const tournamentRef = useRef(null)
+  const teamRef = useRef(null)
+  const videoRef = useRef(null)
+  const faqRef = useRef(null)
+  const contactsRef = useRef(null)
+  const aboutUsRef = useRef(null)
 
   const scroll = e => {
     if (e.currentTarget.id === 'home') {
@@ -57,12 +69,28 @@ export default function Index() {
           showSingUpModal={showSingUpModal} 
         />
         <Authentication />
-        <Tournament />
-        <Team />
-        <Video />
-        <Contacts />
-        <Faq />
-        <AboutUs />
+        <Tournament 
+          tournamentRef={tournamentRef} 
+          scroll={scroll}
+        />
+        <Team
+          teamRef={teamRef} 
+          scroll={scroll} 
+          data={data}
+        />
+        <Video
+          videoRef={videoRef} 
+          scroll={scroll} 
+        />
+        <Contacts
+          contactsRef={contactsRef} 
+          scroll={scroll} 
+        />
+        <Faq 
+          faqRef={faqRef} 
+          scroll={scroll}
+        />
+        <AboutUs aboutUsRef={aboutUsRef} />
       </DivGrid>
     </>
   )
@@ -80,7 +108,7 @@ const GlobalStyle = createGlobalStyle`
       Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, Georgia, sans-serif;
     height: 100%;
     scroll-behavior: smooth;
-    background-color: #e9e9e9; 
+    background-color: #fad185; 
   }
 
   #__next {
@@ -98,6 +126,12 @@ const GlobalStyle = createGlobalStyle`
         url('/fonts/timmana-v4-latin-regular.woff') format('woff'), /* Modern Browsers */
         url('/fonts/timmana-v4-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
         url('/fonts/timmana-v4-latin-regular.svg#Timmana') format('svg'); /* Legacy iOS */
+  }
+
+  :root {
+    --blackGradient: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,1));
+    --whiteGradient: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
+    --gutter: 20px;
   }
 `
 
