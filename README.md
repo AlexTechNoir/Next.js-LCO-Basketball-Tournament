@@ -1,30 +1,23 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# LCO Backetball Tournament
 
-## Getting Started
+This demo made for the challenge: https://youtu.be/hqvGOPB0KmQ
 
-First, run the development server:
+# [Dependencies](https://github.com/AlexTechNoir/Next.js-LCO-Basketball-Tournament/blob/master/package.json#L10)
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+# Features:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- fully responsive
+- mobile first
+- each section designed to fit any viewport
+- no user registration
+- Team section has scrollable list of team players, so any amount of players can be added
+- team players photos and stats are taken from https://stats.nba.com/
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+# What did I use to make this demo:
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- [Create Next App](https://nextjs.org/docs/getting-started#setup)
+- [google-webfonts-helper](https://github.com/majodev/google-webfonts-helper) ([Example](https://github.com/AlexTechNoir/Next.js-LCO-Basketball-Tournament/blob/master/src/pages/index.js#L131))
+- [React Font Awesome](https://github.com/FortAwesome/react-fontawesome) ([Example](https://github.com/AlexTechNoir/Next.js-LCO-Basketball-Tournament/blob/master/src/components/Home.js#L35))
+- [styled-components](https://github.com/styled-components/styled-components) (Examples: [global style](https://github.com/AlexTechNoir/Next.js-LCO-Basketball-Tournament/blob/master/src/pages/index.js#L71), [usual style](https://github.com/AlexTechNoir/Next.js-LCO-Basketball-Tournament/blob/master/src/components/Home.js#L41))
+- [Material UI](https://github.com/mui-org/material-ui) ([Examples](https://github.com/AlexTechNoir/Next.js-LCO-Basketball-Tournament/blob/master/src/components/authentication/LogIn.js#L14))
+- [Framer Motion](https://github.com/framer/motion) (Examples: [1](https://github.com/AlexTechNoir/Next.js-LCO-Basketball-Tournament/blob/master/src/components/Home.js#L27), [2](https://github.com/AlexTechNoir/Next.js-LCO-Basketball-Tournament/blob/master/src/components/Authentication.js#L35))
