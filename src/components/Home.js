@@ -1,33 +1,35 @@
-import React, { useState } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
+import { motion } from 'framer-motion'
+import Link from 'next/link'
 
 export default function Home({ scroll, showLogInModal, showSingUpModal }) {
-  const [ taglineClass, setTaglineClass ] = useState('hidden')
-
   return (
     <DivHome>
       <div>
-        <a href="/#">
-          <picture>
-            <source srcSet="/img/logo.webp" type="image/webp"></source>
-            <source srcSet="/img/logo.jpg" type="image/jpg"></source>
-            <img src="/img/logo.jpg" alt="LCO logo" />
-          </picture>          
-        </a>
+        <Link href="/">
+          <a>
+            <picture>
+              <source srcSet="/img/logo.webp" type="image/webp"></source>
+              <source srcSet="/img/logo.jpg" type="image/jpg"></source>
+              <img src="/img/logo.jpg" alt="LCO logo" />
+            </picture>          
+          </a>
+        </Link>
         <div>
           <button type="button" onClick={showLogInModal}>Log In</button>
           <button type="button" onClick={showSingUpModal}>Sing Up</button>
         </div>
       </div>
       <div>
-        <div>
+        <motion.div initial={{ scale: 0 }} animate={{ scale: 1, transition: { delay: 1 }}}>
           Go fight for your team!
-        </div>
-        <div>
+        </motion.div>
+        <motion.div initial={{ opacity: 0, x: -1500 }} animate={{ opacity: 1, x: 0, transition: { delay: 2 }}}>
           Have an amazing basketball tournament!
-        </div>
+        </motion.div>
       </div>
       <div id="home" onClick={scroll}>
         <FontAwesomeIcon icon={faChevronDown} />
@@ -85,7 +87,7 @@ const DivHome = styled.div`
         -1px -1px 4px #d400ff,
         1px -1px 4px #d400ff,
         -1px 1px 4px #d400ff,
-        1px 1px 4px #d400ff; 
+        1px 1px 4px #d400ff;
     }
     > :last-child {
       border-top: #d400ff 3px solid;

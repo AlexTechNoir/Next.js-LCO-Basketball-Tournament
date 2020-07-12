@@ -2,9 +2,10 @@ import Head from 'next/head'
 import styled, { createGlobalStyle } from 'styled-components'
 import React, { useState, useRef } from 'react'
 import { data } from '../data'
+import dynamic from 'next/dynamic'
 
 import Home from '../components/Home'
-import Authentication from '../components/Authentication'
+const Authentication = dynamic(() => import('../components/Authentication'))
 import Tournament from '../components/Tournament'
 import Team from '../components/Team'
 import Video from '../components/Video'
@@ -53,6 +54,12 @@ export default function Index({ data }) {
     setIsLogInTabVisible(false)
   }
 
+  const closeAuth = e => {
+    if (e.target.id === 'auth') {
+      setAuthClass('invisible')
+    }
+  }
+
   return (
     <>
       <Head>
@@ -68,7 +75,13 @@ export default function Index({ data }) {
           showLogInModal={showLogInModal} 
           showSingUpModal={showSingUpModal} 
         />
-        <Authentication />
+        <Authentication
+          authClass={authClass} 
+          isLogInTabVisible={isLogInTabVisible}
+          showLogInModal={showLogInModal}
+          showSingUpModal={showSingUpModal}
+          closeAuth={closeAuth}
+        />
         <Tournament 
           tournamentRef={tournamentRef} 
           scroll={scroll}
@@ -139,4 +152,13 @@ const DivGrid = styled.div`
   display: grid;
   grid-template-rows: repeat(2, 100vh) minmax(100vh, auto) repeat(4, 100vh);
   grid-template-columns: 50% 50%;
+  > .invisible {
+    visibility: hidden;
+  }
+  > .visible {
+    visibility: visible;
+  }
+  @media only screen and (min-width: 768px) {
+    grid-template-rows: repeat(4, 100vh) repeat(2, 50vh);
+  }
 `

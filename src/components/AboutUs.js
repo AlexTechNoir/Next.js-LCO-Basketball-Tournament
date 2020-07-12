@@ -38,6 +38,7 @@ const DivAboutUs = styled.div`
         1px 1px 3px #d400ff; 
       font-size: 10vw;
       color: rgb(255, 174, 0);
+      margin: 0;
     }
     > :last-child > img {
       float: left;

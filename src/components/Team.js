@@ -47,14 +47,14 @@ const DivTeam = styled.div`
       1px 1px 4px #d400ff; 
   }
   > :nth-child(2) {
-    height: 88vh;
+    height: 75vh;
     display: grid;
     grid-gap: calc(var(--gutter) / 2);
     grid-template-columns: 10px repeat(${data.length}, 260px) 10px;
-    grid-template-rows: 476px;
+    grid-template-rows: 497px;
     overflow-x: auto;
     padding-bottom: calc(.75 * var(--gutter));
-    margin-bottom: calc(-.5 * var(--gutter));
+    margin: 5vh 0 calc(-.5 * var(--gutter)) 0;
   }
   > :last-child {
     height: 6vh;
@@ -87,8 +87,12 @@ const DivTeam = styled.div`
     background-image: url('/img/team.webp');
   }
   @media only screen and (max-width: 992px) {
+    > :first-child {
+      margin-top: 0;
+    }
     > :nth-child(2) {
-      height: auto;
+      margin: 0 0 calc(-.5 * var(--gutter)) 0;
+      height: 88vh;
       &:before, :after {
         content: '';
       }
