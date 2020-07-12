@@ -1,6 +1,6 @@
 # LCO Backetball Tournament
 
-This demo made for the challenge: https://youtu.be/hqvGOPB0KmQ
+This demo made for the challenge: https://youtu.be/hqvGOPB0KmQ It's been rewritten from [ReactJS CRA app](https://github.com/AlexTechNoir/LCO-Basketball-Tournament).
 
 # [Dependencies](https://github.com/AlexTechNoir/Next.js-LCO-Basketball-Tournament/blob/master/package.json#L10)
 
