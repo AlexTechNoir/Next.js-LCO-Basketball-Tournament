@@ -68,12 +68,12 @@ const DivTeam = styled.div`
     cursor: pointer;
     position: absolute;
     bottom: 0;
-    > i {
+    > svg {
       color: white;
     }
     &:hover {
       background: var(--whiteGradient);
-      > i {
+      > svg {
         color: black;
       }
     }

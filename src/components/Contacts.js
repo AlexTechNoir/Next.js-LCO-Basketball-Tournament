@@ -52,12 +52,12 @@ const DivContacts = styled.div`
     height: 3em;
     background: var(--blackGradient);
     cursor: pointer;
-    > i {
+    > svg {
       color: white;
     }
     &:hover {
       background: var(--whiteGradient);
-      > i {
+      > svg {
         color: black;
       }
     }
