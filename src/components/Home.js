@@ -7,13 +7,12 @@ import Link from 'next/link'
 
 export default function Home({ scroll, showLogInModal, showSingUpModal }) {
   return (
-    <DivHome>
+    <MainHome>
       <div>
         <Link href="/">
           <a>
             <picture>
               <source srcSet="/img/logo.webp" type="image/webp"></source>
-              <source srcSet="/img/logo.jpg" type="image/jpg"></source>
               <img src="/img/logo.jpg" alt="LCO logo" />
             </picture>          
           </a>
@@ -34,17 +33,17 @@ export default function Home({ scroll, showLogInModal, showSingUpModal }) {
       <div id="home" onClick={scroll}>
         <FontAwesomeIcon icon={faChevronDown} />
       </div>
-    </DivHome>
+    </MainHome>
   )
 }
 
-const DivHome = styled.div`
+const MainHome = styled.main`
   grid-row: 1 / 2;
   grid-column: 1 / 3;
   display: grid;
   grid-template-rows: 100%;
   grid-template-columns: 100%;
-  background-image: url('/img/mobileImg/homeMobile.webp');
+  background-image: url('/img/mobileImg/homeMobile.jpg');
   background-size: cover;
   background-position: center top;
   background-repeat: no-repeat;
@@ -124,11 +123,9 @@ const DivHome = styled.div`
     }
   }
   @media only screen and (min-width: 600px) {
-    > :first-child {
-      > a > picture > img {
-        width: 15vw;
-        height: 15vw;
-      }
+    > :first-child > a > picture > img {
+      width: 15vw;
+      height: 15vw;
     }
     > :nth-child(2) {
       > :first-child {
@@ -140,14 +137,12 @@ const DivHome = styled.div`
     } 
   }
   @media only screen and (min-width: 768px) {
-    background-image: url('/img/home.webp');
+    background-image: url('/img/home.jpg');
   }
   @media only screen and (min-width: 992px) {
-    > :first-child {
-      > a > picture > img {
-        width: 150px;
-        height: 150px;
-      }
+    > :first-child > a > picture > img {
+      width: 150px;
+      height: 150px;      
     }
     > :nth-child(2) {
       > :first-child {

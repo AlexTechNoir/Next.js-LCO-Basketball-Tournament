@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 export default function AboutUs({ aboutUsRef }) {
   return (
-    <DivAboutUs ref={aboutUsRef}>
+    <SectionAboutUs ref={aboutUsRef}>
       <div>
         <h1>About Us</h1>
         <div>
@@ -12,11 +12,11 @@ export default function AboutUs({ aboutUsRef }) {
         </div>
       </div>
       <div></div>
-    </DivAboutUs>
+    </SectionAboutUs>
   )
 }
 
-const DivAboutUs = styled.div`
+const SectionAboutUs = styled.section`
   grid-row: 7 / 8;
   grid-column: 1 / 3;
   display: grid;
@@ -48,7 +48,7 @@ const DivAboutUs = styled.div`
   }
   > :last-child {
     background-color: rgba(0, 0, 0, 0.5);
-    background-image: url('/img/aboutus.webp');
+    background-image: url('/img/aboutus.jpg');
     background-size: cover;
     background-position: center top;
     background-repeat: no-repeat;

@@ -8,7 +8,7 @@ import TeamPlayer from './team/teamPlayer'
 
 export default function Team({ teamRef, scroll, data }) {
   return (
-    <DivTeam ref={teamRef}>
+    <SectionTeam ref={teamRef}>
       <h2>Team</h2>
       <div>
         {
@@ -20,14 +20,14 @@ export default function Team({ teamRef, scroll, data }) {
       <div id="team" onClick={scroll}>
         <FontAwesomeIcon icon={faChevronDown} />
       </div>
-    </DivTeam>
+    </SectionTeam>
   )
 }
 
-const DivTeam = styled.div`
+const SectionTeam = styled.section`
   grid-row: 3 / 4;
   grid-column: 1 / 3;
-  background-image: url('/img/mobileImg/teamMobile.webp');
+  background-image: url('/img/mobileImg/teamMobile.jpg');
   background-size: cover;
   background-position: center top;
   background-repeat: no-repeat;   
@@ -84,7 +84,7 @@ const DivTeam = styled.div`
     }
   }
   @media only screen and (min-width: 768px) {
-    background-image: url('/img/team.webp');
+    background-image: url('/img/team.jpg');
   }
   @media only screen and (max-width: 992px) {
     > :first-child {

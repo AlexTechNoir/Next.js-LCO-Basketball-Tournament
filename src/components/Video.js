@@ -5,18 +5,18 @@ import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
 
 export default function Video({ videoRef, scroll }) {
   return (
-    <DivVideo ref={videoRef}>
+    <SectionVideo ref={videoRef}>
       <div>
         <iframe src="https://www.youtube.com/embed/hqvGOPB0KmQ" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" frameBorder="0" title="YouTube video" allowFullScreen></iframe>
       </div>
       <div id="video" onClick={scroll}>        
         <FontAwesomeIcon icon={faChevronDown} />
       </div>
-    </DivVideo>
+    </SectionVideo>
   )
 }
 
-const DivVideo = styled.div`
+const SectionVideo = styled.section`
   grid-row: 4 / 5;
   grid-column: 1 / 3;
   display: grid;

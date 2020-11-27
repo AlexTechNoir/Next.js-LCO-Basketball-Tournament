@@ -5,24 +5,24 @@ import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
 
 export default function Tournament({ tournamentRef, scroll }) {
   return (
-    <DivTournament ref={tournamentRef}>
+    <SectionTournament ref={tournamentRef}>
       <div>
         Big tournament is coming soon!
       </div>
       <div id="tournament" onClick={scroll}>
         <FontAwesomeIcon icon={faChevronDown} />
       </div>
-    </DivTournament>
+    </SectionTournament>
   )
 }
 
-const DivTournament = styled.div`
+const SectionTournament = styled.section`
   grid-row: 2 / 3;
   grid-column: 1 / 3;
   display: grid;
   grid-template-rows: 100%;
   grid-template-columns: 100%;
-  background-image: url('/img/mobileImg/tournamentMobile.webp');
+  background-image: url('/img/mobileImg/tournamentMobile.jpg');
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -69,7 +69,7 @@ const DivTournament = styled.div`
     }
   }
   @media only screen and (min-width: 768px) {
-    background-image: url('/img/tournament.webp');
+    background-image: url('/img/tournament.jpg');
     > :first-child {
       margin-top: 5em;
     }

@@ -5,7 +5,7 @@ import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
 
 export default function Faq({ faqRef, scroll }) {
   return (
-    <DivFaq ref={faqRef}>    
+    <SectionFaq ref={faqRef}>    
       <div>
         <h1>FAQ</h1>
         <div>
@@ -44,17 +44,17 @@ export default function Faq({ faqRef, scroll }) {
       <div id="faq" onClick={scroll}>
         <FontAwesomeIcon icon={faChevronDown} />
       </div>
-    </DivFaq>
+    </SectionFaq>
   )
 }
 
-const DivFaq = styled.div`
+const SectionFaq = styled.section`
   grid-row: 6 / 7;
   grid-column: 1 / 3;
   display: grid;
   grid-template-rows: 100%;
   grid-template-columns: 100%;
-  background-image: url('/img/mobileImg/faqMobile.webp');
+  background-image: url('/img/mobileImg/faqMobile.jpg');
   background-size: cover;
   background-position: center top;
   background-repeat: no-repeat;
@@ -104,7 +104,7 @@ const DivFaq = styled.div`
   }
   @media only screen and (min-width: 768px) {
     grid-column: 1 / 2;
-    background-image: url('/img/faq.webp');
+    background-image: url('/img/faq.jpg');
     > :last-child {
       display: none;
     }

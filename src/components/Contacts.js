@@ -5,7 +5,7 @@ import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
 
 export default function Contacts({ contactsRef, scroll }) {
   return (
-    <DivContacts ref={contactsRef}>
+    <SectionContacts ref={contactsRef}>
       <div>
         Contact us:
         <ul>
@@ -17,11 +17,11 @@ export default function Contacts({ contactsRef, scroll }) {
       <div id="contacts" onClick={scroll}>
         <FontAwesomeIcon icon={faChevronDown} />
       </div>
-    </DivContacts>
+    </SectionContacts>
   )
 }
 
-const DivContacts = styled.div`
+const SectionContacts = styled.section`
   grid-row: 5 / 6;
   grid-column: 1 / 3;
   display: grid;
