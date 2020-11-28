@@ -27,6 +27,7 @@ const SectionContacts = styled.section`
   display: grid;
   grid-template-rows: auto 1fr auto;
   grid-template-columns: 100%;
+  background-color: rgb(255, 199, 79);
   > :first-child {
     grid-row: 1 / 2;
     grid-column: 1 / 2;

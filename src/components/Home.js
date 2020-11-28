@@ -1,20 +1,30 @@
-import React from 'react'
 import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
+import Image from 'next/image'
 
 export default function Home({ scroll, showLogInModal, showSingUpModal }) {
   return (
     <MainHome>
+      <div>
+        <Image 
+          alt="basketball player"
+          src="/img/home.webp"
+          layout="fill"
+          objectFit="cover"
+          objectPosition="center top"
+          quality={100}
+        />
+      </div>
       <div>
         <Link href="/">
           <a>
             <picture>
               <source srcSet="/img/logo.webp" type="image/webp"></source>
               <img src="/img/logo.jpg" alt="LCO logo" />
-            </picture>          
+            </picture> 
           </a>
         </Link>
         <div>
@@ -38,18 +48,19 @@ export default function Home({ scroll, showLogInModal, showSingUpModal }) {
 }
 
 const MainHome = styled.main`
-  grid-row: 1 / 2;
-  grid-column: 1 / 3;
+  grid-area: 1 / 1 / 2 / 3;
   display: grid;
   grid-template-rows: 100%;
   grid-template-columns: 100%;
-  background-image: url('/img/mobileImg/homeMobile.jpg');
-  background-size: cover;
-  background-position: center top;
-  background-repeat: no-repeat;
   > :first-child {
-    grid-row: 1 / 2;
-    grid-column: 1 / 2;
+    position: absolute;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    z-index: -1;
+  }
+  > :nth-child(2) {
+    grid-area: 1 / 1 / 2 / 2;
     align-self: start;
     display: flex;
     flex-wrap: nowrap;
@@ -72,9 +83,8 @@ const MainHome = styled.main`
       }
     }
   }
-  > :nth-child(2) {
-    grid-row: 1 / 2;
-    grid-column: 1 / 2;
+  > :nth-child(3) {
+    grid-area: 1 / 1 / 2 / 2;
     align-self: center;
     justify-self: center;
     > :first-child {
@@ -102,8 +112,7 @@ const MainHome = styled.main`
     }
   }
   > :last-child {
-    grid-row: 1 / 2;
-    grid-column: 1 / 2;
+    grid-area: 1 / 1 / 2 / 2;
     align-self: end;
     display: flex;
     justify-content: center;
@@ -123,11 +132,11 @@ const MainHome = styled.main`
     }
   }
   @media only screen and (min-width: 600px) {
-    > :first-child > a > picture > img {
+    > :nth-child(2) > a > picture > img {
       width: 15vw;
       height: 15vw;
     }
-    > :nth-child(2) {
+    > :nth-child(3) {
       > :first-child {
         font-size: 7vw;
       }
@@ -136,15 +145,12 @@ const MainHome = styled.main`
       }
     } 
   }
-  @media only screen and (min-width: 768px) {
-    background-image: url('/img/home.jpg');
-  }
   @media only screen and (min-width: 992px) {
-    > :first-child > a > picture > img {
+    > :nth-child(2) > a > picture > img {
       width: 150px;
       height: 150px;      
     }
-    > :nth-child(2) {
+    > :nth-child(3) {
       > :first-child {
         font-size: 5vw;
       }

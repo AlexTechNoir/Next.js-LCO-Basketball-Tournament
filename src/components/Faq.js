@@ -1,11 +1,10 @@
-import React from 'react'
 import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
 
 export default function Faq({ faqRef, scroll }) {
   return (
-    <SectionFaq ref={faqRef}>    
+    <SectionFaq ref={faqRef}> 
       <div>
         <h1>FAQ</h1>
         <div>
@@ -49,8 +48,7 @@ export default function Faq({ faqRef, scroll }) {
 }
 
 const SectionFaq = styled.section`
-  grid-row: 6 / 7;
-  grid-column: 1 / 3;
+  grid-area: 6 / 1 / 7 / 3;
   display: grid;
   grid-template-rows: 100%;
   grid-template-columns: 100%;
@@ -61,8 +59,7 @@ const SectionFaq = styled.section`
   color: white; 
   overflow-y: auto;
   > :first-child {
-    grid-row: 1 / 2;
-    grid-column: 1 / 2;
+    grid-area: 1 / 1 / 2 / 2;
     align-self: start;
     padding: 1em;
     font-family: 'Timmana', sans-serif;    
@@ -82,8 +79,7 @@ const SectionFaq = styled.section`
     }
   }
   > :last-child {
-    grid-row: 1 / 2;
-    grid-column: 1 / 2;
+    grid-area: 1 / 1 / 2 / 2;
     align-self: end;
     display: flex;
     justify-content: center;

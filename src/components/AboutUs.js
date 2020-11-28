@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import Image from 'next/image'
 
 export default function AboutUs({ aboutUsRef }) {
   return (
@@ -17,14 +18,13 @@ export default function AboutUs({ aboutUsRef }) {
 }
 
 const SectionAboutUs = styled.section`
-  grid-row: 7 / 8;
-  grid-column: 1 / 3;
+  grid-area: 7 / 1 / 8 / 3;
   display: grid;
   grid-template-rows: auto 1fr;
   grid-template-columns: 100%;
+  background-color: rgb(255, 199, 79);
   > :first-child {
-    grid-row: 1 / 2;
-    grid-column: 1 / 2;
+    grid-area: 1 / 1 / 2 / 2;
     display: flex;
     flex-direction: column;
     font-family: 'Timmana', sans-serif;
@@ -59,8 +59,7 @@ const SectionAboutUs = styled.section`
     }
   }
   @media only screen and (min-width: 768px) {
-    grid-row: 6 / 7;
-    grid-column: 2 / 3;
+    grid-area: 6 / 2 / 7 / 3;
     > :first-child > :first-child {
       font-size: 6vw;
     }

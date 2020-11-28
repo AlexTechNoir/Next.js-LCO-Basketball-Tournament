@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import styled, { createGlobalStyle } from 'styled-components'
-import React, { useState, useRef } from 'react'
+import { useState, useRef } from 'react'
 import { data } from '../data'
 import dynamic from 'next/dynamic'
 
@@ -121,7 +121,6 @@ const GlobalStyle = createGlobalStyle`
       Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, Georgia, sans-serif;
     height: 100%;
     scroll-behavior: smooth;
-    background-color: #fad185; 
   }
 
   #__next {
