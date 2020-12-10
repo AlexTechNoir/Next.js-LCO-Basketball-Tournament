@@ -8,7 +8,7 @@ export default function Tournament({ tournamentRef, scroll }) {
     <SectionTournament ref={tournamentRef}>
       <div>
         <Image 
-          alt="basketball player's back"
+          alt=""
           src="/img/tournament.webp"
           layout="fill"
           objectFit="cover"

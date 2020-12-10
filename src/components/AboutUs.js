@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import Image from 'next/image'
 
 export default function AboutUs({ aboutUsRef }) {
   return (
@@ -8,7 +7,7 @@ export default function AboutUs({ aboutUsRef }) {
       <div>
         <h1>About Us</h1>
         <div>
-          <img src='/img/logo.webp' alt="logo" />
+          <img src='/img/logo.webp' alt="LCO logo" />
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus corporis culpa eligendi atque, expedita ipsa voluptas ullam deleniti labore quidem, vero nostrum molestiae numquam eaque? Id deserunt officia distinctio sapiente? Et alias exercitationem eligendi animi perspiciatis architecto, nihil provident, modi accusamus dolor ducimus porro repudiandae quas vero!
         </div>
       </div>
@@ -22,7 +21,7 @@ const SectionAboutUs = styled.section`
   display: grid;
   grid-template-rows: auto 1fr;
   grid-template-columns: 100%;
-  background-color: rgb(255, 199, 79);
+  background-color: rgb(255, 223, 79);
   > :first-child {
     grid-area: 1 / 1 / 2 / 2;
     display: flex;

@@ -10,7 +10,7 @@ export default function Home({ scroll, showLogInModal, showSingUpModal }) {
     <MainHome>
       <div>
         <Image 
-          alt="basketball player"
+          alt=""
           src="/img/home.webp"
           layout="fill"
           objectFit="cover"

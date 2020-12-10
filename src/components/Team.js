@@ -11,7 +11,7 @@ export default function Team({ teamRef, scroll, data }) {
     <SectionTeam ref={teamRef}>
       <div>
         <Image 
-          alt="basketball playground"
+          alt=""
           src="/img/team.webp"
           layout="fill"
           objectFit="cover"

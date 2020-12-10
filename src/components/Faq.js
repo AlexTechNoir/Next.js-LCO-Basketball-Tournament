@@ -4,7 +4,7 @@ import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
 
 export default function Faq({ faqRef, scroll }) {
   return (
-    <SectionFaq ref={faqRef}> 
+    <SectionFaq ref={faqRef} tabIndex="0"> 
       <div>
         <h1>FAQ</h1>
         <div>
