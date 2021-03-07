@@ -5,7 +5,7 @@ import Image from 'next/image'
 
 export default function Tournament({ tournamentRef, scroll }) {
   return (
-    <SectionTournament ref={tournamentRef}>
+    <SectionTournament ref={tournamentRef} tabIndex="0">
       <div>
         <Image 
           alt=""

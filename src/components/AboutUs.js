@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 export default function AboutUs({ aboutUsRef }) {
   return (
-    <SectionAboutUs ref={aboutUsRef}>
+    <SectionAboutUs ref={aboutUsRef} tabIndex="0">
       <div>
         <h1>About Us</h1>
         <div>

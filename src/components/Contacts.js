@@ -5,7 +5,7 @@ import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
 
 export default function Contacts({ contactsRef, scroll }) {
   return (
-    <SectionContacts ref={contactsRef}>
+    <SectionContacts ref={contactsRef} tabIndex="0">
       <div>
         Contact us:
         <ul>

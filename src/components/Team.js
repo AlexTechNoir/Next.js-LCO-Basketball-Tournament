@@ -8,7 +8,7 @@ import TeamPlayer from './team/teamPlayer'
 
 export default function Team({ teamRef, scroll, data }) {
   return (
-    <SectionTeam ref={teamRef}>
+    <SectionTeam ref={teamRef} tabIndex="0">
       <div>
         <Image 
           alt=""
@@ -20,13 +20,13 @@ export default function Team({ teamRef, scroll, data }) {
         />
       </div>
       <h2>Team</h2>
-      <div>
+      <section>
         {
           data.map(dataItem => {
             return <TeamPlayer key={dataItem.id} dataItem={dataItem} />
           })
         }
-      </div>
+      </section>
       <div id="team" onClick={scroll}>
         <FontAwesomeIcon icon={faChevronDown} />
       </div>

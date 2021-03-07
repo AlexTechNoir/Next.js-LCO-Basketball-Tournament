@@ -5,7 +5,7 @@ import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
 
 export default function Video({ videoRef, scroll }) {
   return (
-    <SectionVideo ref={videoRef}>
+    <SectionVideo ref={videoRef} tabIndex="0">
       <div>
         <iframe src="https://www.youtube.com/embed/hqvGOPB0KmQ" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" frameBorder="0" title="YouTube video" allowFullScreen></iframe>
       </div>

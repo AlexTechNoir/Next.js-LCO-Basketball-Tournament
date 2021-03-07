@@ -33,10 +33,10 @@ export default function Home({ scroll, showLogInModal, showSingUpModal }) {
         </div>
       </div>
       <div>
-        <motion.div initial={{ scale: 0 }} animate={{ scale: 1, transition: { delay: 1 }}}>
+        <motion.div initial={{ scale: 0 }} animate={{ scale: 1, transition: { delay: 1 }}} tabindex="0">
           Go fight for your team!
         </motion.div>
-        <motion.div initial={{ opacity: 0, x: -1500 }} animate={{ opacity: 1, x: 0, transition: { delay: 2 }}}>
+        <motion.div initial={{ opacity: 0, x: -1500 }} animate={{ opacity: 1, x: 0, transition: { delay: 2 }}} tabindex="0">
           Have an amazing basketball tournament!
         </motion.div>
       </div>

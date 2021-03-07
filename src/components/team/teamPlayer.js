@@ -17,7 +17,7 @@ export default function teamPlayer({ dataItem }) {
   } = dataItem
 
   return (
-    <DivTeamPlayer>
+    <DivTeamPlayer tabIndex="0">
       <img alt="player" src={`/img/team/${id}.webp`} />
       <div>{name}</div>
       <div>
