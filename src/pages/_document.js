@@ -31,7 +31,10 @@ export default class MyDocument extends Document {
   render() {
     return (
       <Html lang="en">
-        <Head />
+        <Head>
+          {/* Safari smooth scroll polyfill script */}
+          <script defer src="https://unpkg.com/smoothscroll-polyfill@0.4.4/dist/smoothscroll.min.js"></script>
+        </Head>
         <body>
           <Main />
           <NextScript />
