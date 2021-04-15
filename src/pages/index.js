@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import styled, { createGlobalStyle } from 'styled-components'
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { data } from '../data'
 import dynamic from 'next/dynamic'
 
@@ -27,6 +27,14 @@ export default function Index({ data }) {
   const faqRef = useRef(null)
   const contactsRef = useRef(null)
   const aboutUsRef = useRef(null)
+
+  useEffect(() => {
+    const removeFouc = foucElement => {
+      foucElement.className = foucElement.className.replace('no-fouc', 'fouc')
+    }
+  
+    removeFouc(document.documentElement)
+  }, [])
 
   const scroll = e => {
     if (e.currentTarget.id === 'home') {
@@ -144,6 +152,17 @@ const GlobalStyle = createGlobalStyle`
     --blackGradient: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,1));
     --whiteGradient: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
     --gutter: 20px;
+  }
+
+  .no-fouc {
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 1s, visibility 1s;
+  }
+
+  .fouc {
+    visibility: visible;
+    opacity: 1;
   }
 `
 

@@ -7,7 +7,7 @@ export default function Video({ videoRef, scroll }) {
   return (
     <SectionVideo ref={videoRef} tabIndex="0">
       <div>
-        <iframe src="https://www.youtube.com/embed/hqvGOPB0KmQ" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" frameBorder="0" title="YouTube video" allowFullScreen></iframe>
+        <iframe src="https://www.youtube-nocookie.com/embed/ivbSBxTzCac" title="YouTube video" frameBorder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
       </div>
       <div id="video" onClick={scroll}>        
         <FontAwesomeIcon icon={faChevronDown} />
