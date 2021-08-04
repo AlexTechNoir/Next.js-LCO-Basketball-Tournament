@@ -30,9 +30,11 @@ export default class MyDocument extends Document {
 
   render() {
     return (
-      <Html lang="en" className="no-fouc">
+      <Html lang="en" className="smoothLoad">
         <Head />
         <body>
+          {/* dummy script to avoid MUI FOUC */}
+          <script>0</script>
           <Main />
           <NextScript />
         </body>

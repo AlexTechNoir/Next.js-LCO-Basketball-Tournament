@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import styled, { createGlobalStyle } from 'styled-components'
-import { useState, useRef, useEffect } from 'react'
+import { useState, useRef } from 'react'
 import { data } from '../data'
 import dynamic from 'next/dynamic'
 
@@ -28,13 +28,7 @@ export default function Index({ data }) {
   const contactsRef = useRef(null)
   const aboutUsRef = useRef(null)
 
-  useEffect(() => {
-    const removeFouc = foucElement => {
-      foucElement.className = foucElement.className.replace('no-fouc', 'fouc')
-    }
-  
-    removeFouc(document.documentElement)
-  }, [])
+  const [ isLoading, setIsLoading ] = useState(true)
 
   const scroll = e => {
     if (e.currentTarget.id === 'home') {
@@ -76,12 +70,14 @@ export default function Index({ data }) {
         <meta name="description" content="Have an amazing basketball tournament!" />
       </Head>
 
-      <GlobalStyle />
+      <GlobalStyle isLoading={isLoading} />
       <DivGrid>
         <Home 
           scroll={scroll} 
           showLogInModal={showLogInModal} 
-          showSingUpModal={showSingUpModal} 
+          showSingUpModal={showSingUpModal}
+          isLoading={isLoading}
+          setIsLoading={setIsLoading}
         />
         <Authentication
           authClass={authClass} 
@@ -154,15 +150,10 @@ const GlobalStyle = createGlobalStyle`
     --gutter: 20px;
   }
 
-  .no-fouc {
-    visibility: hidden;
-    opacity: 0;
+  .smoothLoad {
+    visibility: ${props => props.isLoading ? 'hidden' : 'visible'};
+    opacity: ${props => props.isLoading ? 0 : 1};
     transition: opacity 1s, visibility 1s;
-  }
-
-  .fouc {
-    visibility: visible;
-    opacity: 1;
   }
 `
 

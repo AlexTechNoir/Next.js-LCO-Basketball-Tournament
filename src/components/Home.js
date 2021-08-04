@@ -5,7 +5,29 @@ import { motion } from 'framer-motion'
 import Link from 'next/link'
 import Image from 'next/image'
 
-export default function Home({ scroll, showLogInModal, showSingUpModal }) {
+export default function Home({ scroll, showLogInModal, showSingUpModal, isLoading, setIsLoading }) {
+  const upperTextAnimation = {
+    active: {
+      scale: 1, 
+      transition: { delay: 1.5 }
+    }
+  }
+
+  const lowerTextAnimation = {
+    active: {
+      opacity: 1, 
+      x: 0, 
+      transition: { delay: 2.5 }
+    }
+  }
+
+  const handleImgLoad = e => {
+    const target = e.target
+    if (target.complete && target.style.visibility !== 'hidden') {
+      setIsLoading(false)
+    }
+  }
+
   return (
     <MainHome>
       <div>
@@ -16,6 +38,7 @@ export default function Home({ scroll, showLogInModal, showSingUpModal }) {
           objectFit="cover"
           objectPosition="center top"
           quality={75}
+          onLoad={handleImgLoad}
         />
       </div>
       <div>
@@ -33,10 +56,20 @@ export default function Home({ scroll, showLogInModal, showSingUpModal }) {
         </div>
       </div>
       <div>
-        <motion.div initial={{ scale: 0 }} animate={{ scale: 1, transition: { delay: 1.5 }}} tabindex="0">
+        <motion.div 
+          variants={upperTextAnimation} 
+          initial={{ scale: 0 }} 
+          animate={ !isLoading ? 'active' : '' } 
+          tabindex="0"
+        >
           Go fight for your team!
         </motion.div>
-        <motion.div initial={{ opacity: 0, x: -1500 }} animate={{ opacity: 1, x: 0, transition: { delay: 2.5 }}} tabindex="0">
+        <motion.div 
+          variants={lowerTextAnimation} 
+          initial={{ opacity: 0, x: -1500 }} 
+          animate={ !isLoading ? 'active' : '' } 
+          tabindex="0"
+        >
           Have an amazing basketball tournament!
         </motion.div>
       </div>
