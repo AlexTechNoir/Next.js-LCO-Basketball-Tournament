@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
 
-export default function Faq({ faqRef, scroll }) {
+export default function Faq({ faqRef, scroll, isArrowVisible }) {
   return (
     <SectionFaq ref={faqRef} tabIndex="0"> 
       <div>
@@ -40,9 +40,13 @@ export default function Faq({ faqRef, scroll }) {
           </div>
         </div>
       </div>
-      <div id="faq" onClick={scroll}>
-        <FontAwesomeIcon icon={faChevronDown} />
-      </div>
+      {
+        !isArrowVisible ? null : (
+          <div id="faq" onClick={scroll}>
+            <FontAwesomeIcon icon={faChevronDown} />
+          </div>
+        )
+      }
     </SectionFaq>
   )
 }
@@ -58,6 +62,7 @@ const SectionFaq = styled.section`
   background-repeat: no-repeat;
   color: white; 
   overflow-y: auto;
+  scroll-snap-align: start;
   > :first-child {
     grid-area: 1 / 1 / 2 / 2;
     align-self: start;
@@ -78,7 +83,7 @@ const SectionFaq = styled.section`
       }
     }
   }
-  > :last-child {
+  > #faq {
     grid-area: 1 / 1 / 2 / 2;
     align-self: end;
     display: flex;
@@ -101,7 +106,7 @@ const SectionFaq = styled.section`
   @media only screen and (min-width: 768px) {
     grid-column: 1 / 2;
     background-image: url('/img/faq.jpg');
-    > :last-child {
+    > #faq {
       display: none;
     }
   }

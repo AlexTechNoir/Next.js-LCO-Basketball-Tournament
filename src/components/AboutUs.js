@@ -22,6 +22,7 @@ const SectionAboutUs = styled.section`
   grid-template-rows: auto 1fr;
   grid-template-columns: 100%;
   background-color: rgb(255, 223, 79);
+  scroll-snap-align: start;
   > :first-child {
     grid-area: 1 / 1 / 2 / 2;
     display: flex;

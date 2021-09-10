@@ -6,7 +6,7 @@ import Image from 'next/image'
 
 import TeamPlayer from './team/teamPlayer'
 
-export default function Team({ teamRef, scroll, data }) {
+export default function Team({ teamRef, scroll, data, isArrowVisible }) {
   return (
     <SectionTeam ref={teamRef} tabIndex="0">
       <div>
@@ -17,6 +17,7 @@ export default function Team({ teamRef, scroll, data }) {
           objectFit="cover"
           objectPosition="center center"
           quality={100}
+          loading="eager"
         />
       </div>
       <h2>Team</h2>
@@ -27,21 +28,22 @@ export default function Team({ teamRef, scroll, data }) {
           })
         }
       </section>
-      <div id="team" onClick={scroll}>
-        <FontAwesomeIcon icon={faChevronDown} />
-      </div>
+      {
+        !isArrowVisible ? null : (
+          <div id="team" onClick={scroll}>
+            <FontAwesomeIcon icon={faChevronDown} />
+          </div>
+        )
+      }
     </SectionTeam>
   )
 }
 
 const SectionTeam = styled.section`
   grid-area: 3 / 1 / 4 / 3;
-  /* background-image: url('/img/mobileImg/teamMobile.jpg');
-  background-size: cover;
-  background-position: center top;
-  background-repeat: no-repeat;    */
   overflow-y: auto; 
   position: relative;
+  scroll-snap-align: start;
   > :first-child {
     position: absolute;
     height: 100vh;
@@ -72,7 +74,7 @@ const SectionTeam = styled.section`
     padding-bottom: calc(.75 * var(--gutter));
     margin: 5vh 0 calc(-.5 * var(--gutter)) 0;
   }
-  > :last-child {
+  > #team {
     height: 6vh;
     display: flex;
     justify-content: center;

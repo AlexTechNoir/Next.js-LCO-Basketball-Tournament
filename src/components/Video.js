@@ -3,15 +3,19 @@ import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
 
-export default function Video({ videoRef, scroll }) {
+export default function Video({ videoRef, scroll, isArrowVisible }) {
   return (
     <SectionVideo ref={videoRef} tabIndex="0">
       <div>
         <iframe src="https://www.youtube-nocookie.com/embed/ivbSBxTzCac" title="YouTube video" frameBorder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
       </div>
-      <div id="video" onClick={scroll}>        
-        <FontAwesomeIcon icon={faChevronDown} />
-      </div>
+      {
+        !isArrowVisible ? null : (
+          <div id="video" onClick={scroll}>        
+            <FontAwesomeIcon icon={faChevronDown} />
+          </div>
+        )
+      }
     </SectionVideo>
   )
 }
@@ -22,18 +26,19 @@ const SectionVideo = styled.section`
   display: grid;
   grid-template-rows: 100%;
   grid-template-columns: 100%;
+  scroll-snap-align: start;
   > :first-child {
     grid-row: 1 / 2;
     grid-column: 1 / 2;
-    align-self: start;
+    align-self: stretch;
     padding: 0 0 50% 0;
     > iframe {
       position: absolute;
       width: 100%;
-      height: 92%;
+      height: 100%;
     }
   }
-  > :last-child {
+  > #video {
     grid-row: 1 / 2;
     grid-column: 1 / 2;
     align-self: end;
@@ -53,6 +58,12 @@ const SectionVideo = styled.section`
       > svg {
         color: black;
       }
+    }
+  }
+
+  @media only screen and (max-width: 425px) {
+    > :first-child > iframe {
+      height: 92%;
     }
   }
 `

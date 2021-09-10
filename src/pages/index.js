@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import styled, { createGlobalStyle } from 'styled-components'
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { data } from '../data'
 import dynamic from 'next/dynamic'
 
@@ -29,6 +29,22 @@ export default function Index({ data }) {
   const aboutUsRef = useRef(null)
 
   const [ isLoading, setIsLoading ] = useState(true)
+  const [ isArrowVisible, setIsArrowVisible ] = useState(false)
+
+  const toggleArrow = () => {
+    if (window.innerWidth <= 425) {
+      setIsArrowVisible(true)
+    } else {
+      setIsArrowVisible(false)
+    }
+  }
+
+  useEffect(() => {
+    window.addEventListener('resize', toggleArrow)
+    toggleArrow()
+    
+    return () => window.removeEventListener('resize', toggleArrow)
+  },[])
 
   const scroll = e => {
     if (e.currentTarget.id === 'home') {
@@ -68,6 +84,7 @@ export default function Index({ data }) {
         <title>Arrange your basketball tournament! | LCO Basketball Tournament</title>
         <link rel="icon" href="/favicon.ico" />
         <meta name="description" content="Have an amazing basketball tournament!" />
+        <meta name="robots" content="noindex" />
       </Head>
 
       <GlobalStyle isLoading={isLoading} />
@@ -78,6 +95,7 @@ export default function Index({ data }) {
           showSingUpModal={showSingUpModal}
           isLoading={isLoading}
           setIsLoading={setIsLoading}
+          isArrowVisible={isArrowVisible}
         />
         <Authentication
           authClass={authClass} 
@@ -89,23 +107,28 @@ export default function Index({ data }) {
         <Tournament 
           tournamentRef={tournamentRef} 
           scroll={scroll}
+          isArrowVisible={isArrowVisible}
         />
         <Team
           teamRef={teamRef} 
           scroll={scroll} 
           data={data}
+          isArrowVisible={isArrowVisible}
         />
         <Video
           videoRef={videoRef} 
           scroll={scroll} 
+          isArrowVisible={isArrowVisible}
         />
         <Contacts
           contactsRef={contactsRef} 
           scroll={scroll} 
+          isArrowVisible={isArrowVisible} 
         />
         <Faq 
           faqRef={faqRef} 
           scroll={scroll}
+          isArrowVisible={isArrowVisible}
         />
         <AboutUs aboutUsRef={aboutUsRef} />
       </DivGrid>
@@ -125,6 +148,11 @@ const GlobalStyle = createGlobalStyle`
       Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, Georgia, sans-serif;
     height: 100%;
     scroll-behavior: smooth;
+  }
+
+  html {
+    scroll-snap-type: y mandatory;
+    transition: scroll-snap-type 1s;
   }
 
   #__next {

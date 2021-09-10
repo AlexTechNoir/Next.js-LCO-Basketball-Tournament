@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
 import Image from 'next/image'
 
-export default function Tournament({ tournamentRef, scroll }) {
+export default function Tournament({ tournamentRef, scroll, isArrowVisible }) {
   return (
     <SectionTournament ref={tournamentRef} tabIndex="0">
       <div>
@@ -19,9 +19,13 @@ export default function Tournament({ tournamentRef, scroll }) {
       <div>
         Big tournament is coming soon!
       </div>
-      <div id="tournament" onClick={scroll}>
-        <FontAwesomeIcon icon={faChevronDown} />
-      </div>
+      {
+        !isArrowVisible ? null : (
+          <div id="tournament" onClick={scroll}>
+            <FontAwesomeIcon icon={faChevronDown} />
+          </div>
+        )
+      }
     </SectionTournament>
   )
 }
@@ -31,6 +35,7 @@ const SectionTournament = styled.section`
   display: grid;
   grid-template-rows: 100%;
   grid-template-columns: 100%;
+  scroll-snap-align: start;
   > :first-child {
     position: absolute;
     height: 100vh;
@@ -53,7 +58,7 @@ const SectionTournament = styled.section`
       1px 1px 4px #d400ff; 
     font-size: 7vw;
   }
-  > :last-child {
+  > #tournament {
     grid-area: 1 / 1 / 2 / 2;
     align-self: end;
     display: flex;

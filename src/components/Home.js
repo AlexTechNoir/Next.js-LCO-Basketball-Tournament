@@ -5,7 +5,7 @@ import { motion } from 'framer-motion'
 import Link from 'next/link'
 import Image from 'next/image'
 
-export default function Home({ scroll, showLogInModal, showSingUpModal, isLoading, setIsLoading }) {
+export default function Home({ scroll, showLogInModal, showSingUpModal, isLoading, setIsLoading, isArrowVisible }) {
   const upperTextAnimation = {
     active: {
       scale: 1, 
@@ -21,12 +21,7 @@ export default function Home({ scroll, showLogInModal, showSingUpModal, isLoadin
     }
   }
 
-  const handleImgLoad = e => {
-    const target = e.target
-    if (target.complete && target.style.visibility !== 'hidden') {
-      setIsLoading(false)
-    }
-  }
+  const handleImgLoad = () => setIsLoading(false)
 
   return (
     <MainHome>
@@ -37,8 +32,9 @@ export default function Home({ scroll, showLogInModal, showSingUpModal, isLoadin
           layout="fill"
           objectFit="cover"
           objectPosition="center top"
-          quality={75}
-          onLoad={handleImgLoad}
+          quality={100}
+          onLoadingComplete={handleImgLoad}
+          loading="eager"
         />
       </div>
       <div>
@@ -73,9 +69,13 @@ export default function Home({ scroll, showLogInModal, showSingUpModal, isLoadin
           Have an amazing basketball tournament!
         </motion.div>
       </div>
-      <div id="home" onClick={scroll}>
-        <FontAwesomeIcon icon={faChevronDown} />
-      </div>
+      {
+        !isArrowVisible ? null : (
+          <div id="home" onClick={scroll}>
+            <FontAwesomeIcon icon={faChevronDown} />
+          </div>
+        )
+      }
     </MainHome>
   )
 }
@@ -85,6 +85,8 @@ const MainHome = styled.main`
   display: grid;
   grid-template-rows: 100%;
   grid-template-columns: 100%;
+  scroll-snap-align: start;
+  transition: scroll-snap-align 1s;
   > :first-child {
     position: absolute;
     height: 100vh;
@@ -144,7 +146,7 @@ const MainHome = styled.main`
       visibility: hidden;
     }
   }
-  > :last-child {
+  > #home {
     grid-area: 1 / 1 / 2 / 2;
     align-self: end;
     display: flex;
