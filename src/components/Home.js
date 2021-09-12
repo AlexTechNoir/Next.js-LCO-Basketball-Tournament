@@ -21,12 +21,7 @@ export default function Home({ scroll, showLogInModal, showSingUpModal, isLoadin
     }
   }
 
-  const handleImgLoad = e => {
-    const target = e.target
-    if (target.complete && target.style.visibility !== 'hidden') {
-      setIsLoading(false)
-    }
-  }
+  const handleImgLoad = () => setIsLoading(false)
 
   return (
     <MainHome>
@@ -38,7 +33,7 @@ export default function Home({ scroll, showLogInModal, showSingUpModal, isLoadin
           objectFit="cover"
           objectPosition="center top"
           quality={100}
-          onLoad={handleImgLoad}
+          onLoadingComplete={handleImgLoad}
           loading="eager"
         />
       </div>
